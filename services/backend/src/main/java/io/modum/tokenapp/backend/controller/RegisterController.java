@@ -61,7 +61,7 @@ public class RegisterController {
 
     }
 
-    @RequestMapping(value = "/register", method = POST, consumes = APPLICATION_JSON_UTF8_VALUE,
+    @RequestMapping(value = "api/register", method = POST, consumes = APPLICATION_JSON_UTF8_VALUE,
             produces = APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest registerRequest,
                                       @Context HttpServletRequest httpServletRequest)
@@ -107,7 +107,7 @@ public class RegisterController {
         }
     }
 
-    @RequestMapping(value = "/register/{emailConfirmationToken}/validate", method = GET)
+    @RequestMapping(value = "api/register/{emailConfirmationToken}/validate", method = GET)
     public ResponseEntity<?> isConfirmationTokenValid(@Valid @Size(max = Constants.UUID_CHAR_MAX_SIZE) @PathVariable("emailConfirmationToken") String emailConfirmationToken,
                                                       @Context HttpServletRequest httpServletRequest)
             throws BaseException {
