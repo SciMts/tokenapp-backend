@@ -53,7 +53,7 @@ public class AddressController {
 
     }
 
-    @RequestMapping(value = "api//address", method = POST, consumes = APPLICATION_JSON_UTF8_VALUE,
+    @RequestMapping(value = "api/address", method = POST, consumes = APPLICATION_JSON_UTF8_VALUE,
             produces = APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AddressResponse> address(@Valid @RequestBody AddressRequest addressRequest,
                                                    @Valid @Size(max = Constants.UUID_CHAR_MAX_SIZE) @RequestHeader(value="Authorization") String authorizationHeader,
