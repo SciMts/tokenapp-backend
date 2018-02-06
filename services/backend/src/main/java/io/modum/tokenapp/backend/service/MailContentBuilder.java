@@ -46,7 +46,7 @@ public class MailContentBuilder {
                 oMessage.get().setText(html5Content, true);
 
                 final InputStreamSource modumLogoImage =
-                        new ByteArrayResource(IOUtils.toByteArray(this.getClass().getResourceAsStream("/static/images/modum_logo.png")));
+                        new ByteArrayResource(IOUtils.toByteArray(this.getClass().getResourceAsStream("/static/images/scimts_logo.png")));
                 oMessage.get().addInline("modumLogo", modumLogoImage, "image/png");
 
             } catch (MessagingException e) {
@@ -79,7 +79,7 @@ public class MailContentBuilder {
 
                 // modumLogo:
                 final InputStreamSource modumLogoImage =
-                        new ByteArrayResource(IOUtils.toByteArray(this.getClass().getResourceAsStream("/static/images/modum_logo.png")));
+                        new ByteArrayResource(IOUtils.toByteArray(this.getClass().getResourceAsStream("/static/images/scimts_logo.png")));
                 oMessage.get().addInline("modumLogo", modumLogoImage, "image/png");
 
                 // payInEtherAddress:

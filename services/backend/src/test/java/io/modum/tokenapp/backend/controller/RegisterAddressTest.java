@@ -50,7 +50,7 @@ public class RegisterAddressTest extends TokenAppBaseTest {
 
     private RegisterAddressTestImpl testImpl;
 
-    public static final String TEST_EMAIL = "tokentest@modum.io";
+    public static final String TEST_EMAIL = "tokentest@sciencematters.io";
     public static final String INVALID_CONFIRMATION_EMAIL_TOKEN = "621cb1d2-7e0c-450c-a4fd-22d0e26fdc5e";
 
     @Before
