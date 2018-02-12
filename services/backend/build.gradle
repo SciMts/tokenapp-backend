@@ -1,17 +1,28 @@
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven { url 'https://dl.bintray.com/ethereum/maven/' }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.3.RELEASE")
-    }
-}
-
 plugins {
     id 'java'
     id 'org.springframework.boot' version '1.5.4.RELEASE'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.modum.tokenapp.backend.BackendApplication'
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://dl.bintray.com/ethereum/maven/' }
+}
+
+springBoot {
+    classifier = 'boot'
+    executable = true
 }
 
 dependencies {
@@ -48,22 +59,6 @@ dependencies {
     compile 'org.knowm.xchange:xchange-kraken:4.2.0'
     compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-}
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-apply plugin: 'java'
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'io.modum.tokenapp.backend.BackendApplication'
-    }
-}
-
-springBoot {
-    classifier = 'boot'
-    executable = true
 }
 
 // gradle run is alias for bootRun
