@@ -1,12 +1,22 @@
-plugins {
-    id 'java'
-    id 'org.springframework.boot' version '1.5.4.RELEASE'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
+    }
 }
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-apply plugin: 'java'
+jar {
+    baseName = 'gs-spring-boot'
+    version =  '0.1.0'
+}
 
 repositories {
     jcenter()

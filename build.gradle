@@ -16,4 +16,4 @@ subprojects {
 
 }
 
-task stage()
+task stage(dependsOn: ['services:backend:build'])
