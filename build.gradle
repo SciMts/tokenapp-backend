@@ -16,4 +16,4 @@ subprojects {
 
 }
 
-task stage(dependsOn: ['clean', 'services:backend:bootRunProd'])
+task stage(dependsOn: ['services:backend:stage'])
