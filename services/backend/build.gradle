@@ -6,6 +6,14 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.modum.tokenapp.backend.BackendApplication'
+    }
+}
+
 repositories {
     jcenter()
     mavenCentral()
