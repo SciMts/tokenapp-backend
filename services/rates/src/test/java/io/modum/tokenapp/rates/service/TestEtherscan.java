@@ -22,10 +22,6 @@ public class TestEtherscan extends TokenAppBaseTest {
     @Autowired
     private ExchangeRate exchangeRate;
 
-
-    @Autowired
-    private Blockr blockr;
-
     @Test
     public void testConnect1() throws IOException {
         String balance = etherscan.getBalance("0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae").toString();
@@ -40,9 +36,8 @@ public class TestEtherscan extends TokenAppBaseTest {
 
     @Test
     public void testBlockNr() throws IOException {
-        long bl1 = blockr.getCurrentBlockNr();
         long bl2 = etherscan.getCurrentBlockNr();
-        System.out.println("ret: "+bl1 +"/"+bl2);
+        System.out.println("ret: " + "/"+bl2);
     }
 
     @Test
