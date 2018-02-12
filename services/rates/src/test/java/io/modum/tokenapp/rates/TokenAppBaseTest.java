@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
         "bitcoin.net: unittest",
         "modum.url.etherscan:api.etherscan.io",
         "modum.url.blockr:btc.blockr.io",
-        "modum.token.etherscan:" + System.getenv().get('ETHERSCAN_API_TOKEN')
+        "modum.token.etherscan:" + System.getenv().get("ETHERSCAN_API_TOKEN")
 
 })
 // ;mv_store=false needed for correct isolation level:

@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
         "bitcoin.net: unittest",
         "modum.url.etherscan:api.etherscan.io",
         "modum.url.blockr:tbtc.blockr.io",
-        "modum.token.etherscan:" + System.getenv().get('ETHERSCAN_API_TOKEN')
+        "modum.token.etherscan:" + System.getenv().get("ETHERSCAN_API_TOKEN")
 })
 // ;mv_store=false needed for correct isolation level:
 // http://h2-database.66688.n3.nabble.com/Am-I-bananas-or-does-serializable-isolation-not-work-as-it-should-tp4030767p4030768.html
