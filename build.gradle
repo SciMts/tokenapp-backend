@@ -18,6 +18,6 @@ subprojects {
 
 task stage(dependsOn: ['clean', 'services:backend:build']) {
     doFirst() {
-        systemProperty 'spring.profiles.active', 'prod'
+        System.setProperty 'spring.profiles.active', 'prod'
     }
 }
