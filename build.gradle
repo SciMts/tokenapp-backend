@@ -18,6 +18,8 @@ subprojects {
 
 task stage(dependsOn: ['clean', 'services:backend:build']) {
     doFirst() {
+        main = 'io.modum.tokenapp.backend.BackendApplication'
+        classpath = sourceSets.main.runtimeClasspath
         System.setProperty 'spring.profiles.active', 'prod'
     }
 }
