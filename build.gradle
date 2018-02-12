@@ -16,5 +16,4 @@ subprojects {
 
 }
 
-task stage(dependsOn: ['clean', 'services:backend:build'])
-build.mustRunAfter 'services:backend:build'
+task stage(dependsOn: ['clean', 'services:backend:build', 'services:backend:run'])
