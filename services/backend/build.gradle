@@ -72,13 +72,26 @@ task bootRunProd(type: org.springframework.boot.gradle.run.BootRunTask, dependsO
     }
 }
 
-task stage(type: Copy, dependsOn: [clean, build]) {
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+	manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+        	'Implementation-Version': version,
+        	'Main-Class': 'com.mkyong.DateUtils'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task stage(type: Copy, dependsOn: [clean, fatJar]) {
     from jar.archivePath
     into project.rootDir
     rename {
         'app.jar'
     }
 }
+
 stage.mustRunAfter(clean)
 
 clean << {
