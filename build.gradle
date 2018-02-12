@@ -16,7 +16,7 @@ subprojects {
 
 }
 
-task stage(dependsOn: ['clean', 'services:backend:build', 'services:backend:run']) {
+task stage(dependsOn: ['clean', 'services:backend:build']) {
     doFirst() {
         main = project.mainClassName
         classpath = sourceSets.main.runtimeClasspath
