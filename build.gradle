@@ -16,4 +16,10 @@ subprojects {
 
 }
 
-task stage(dependsOn: ['clean', 'services:backend:build', 'services:backend:run'])
+task stage(dependsOn: ['clean', 'services:backend:build', 'services:backend:run']) {
+    doFirst() {
+        main = project.mainClassName
+        classpath = sourceSets.main.runtimeClasspath
+        systemProperty 'spring.profiles.active', 'prod'
+    }
+}
