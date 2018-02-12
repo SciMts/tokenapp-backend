@@ -9,6 +9,11 @@ buildscript {
     }
 }
 
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
+}
+
 dependencies {
 
     // Spring Boot
@@ -43,11 +48,6 @@ dependencies {
     compile 'org.knowm.xchange:xchange-kraken:4.2.0'
     compileOnly 'org.springframework.boot:spring-boot-configuration-processor'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-}
-
-plugins {
-    id 'java'
-    id 'org.springframework.boot' version '1.5.4.RELEASE'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
