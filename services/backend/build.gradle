@@ -1,24 +1,3 @@
-plugins {
-    id 'java'
-    id 'org.springframework.boot' version '1.5.4.RELEASE'
-}
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-apply plugin: 'java'
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'io.modum.tokenapp.backend.BackendApplication'
-    }
-}
-
-springBoot {
-    classifier = 'boot'
-    executable = true
-}
-
 buildscript {
     repositories {
         jcenter()
@@ -63,6 +42,26 @@ buildscript {
     }
 }
 
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+apply plugin: 'java'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.modum.tokenapp.backend.BackendApplication'
+    }
+}
+
+springBoot {
+    classifier = 'boot'
+    executable = true
+}
 
 // gradle run is alias for bootRun
 task run(dependsOn: bootRun)
