@@ -23,9 +23,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 public class RegisterAddressTestImpl {
 
-    public static final String REGISTER = "/register";
-    public static final String REGISTER_CONFIRMATION_TOKEN_VALIDATE = "/register/%s/validate";
-    public static final String ADDRESS = "/address";
+    public static final String REGISTER = "/api/register";
+    public static final String REGISTER_CONFIRMATION_TOKEN_VALIDATE = "/api/register/%s/validate";
+    public static final String ADDRESS = "/api/address";
 
     private static MockMvc mockMvc;
 
