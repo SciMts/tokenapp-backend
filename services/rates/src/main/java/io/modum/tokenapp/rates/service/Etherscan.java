@@ -24,8 +24,6 @@ import java.util.List;
 
 @Service
 public class Etherscan {
-    @Value("${modum.token.etherscan:YourApiKeyToken}")
-    private String apiKey;
 
     @Value("${modum.url.etherscan:rinkeby.etherscan.io}")
     private String url; //api.etherscan.io or rinkeby.etherscan.io
@@ -42,7 +40,7 @@ public class Etherscan {
                 "&action=balance" +
                 "&address=" + address +
                 "&tag=latest" +
-                "&apikey="+apiKey;
+                "&apikey=" + System.getenv().get("ETHERSCAN_API_TOKEN");
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("User-Agent", options.getUserAgent());
@@ -59,7 +57,7 @@ public class Etherscan {
                 "&action=txlist" +
                 "&address=" + address +
                 "&tag=latest" +
-                "&apikey="+apiKey;
+                "&apikey="+ System.getenv().get("ETHERSCAN_API_TOKEN");
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("User-Agent", options.getUserAgent());
@@ -96,7 +94,7 @@ public class Etherscan {
                 "&action=balancemulti" +
                 "&address=" + addresses +
                 "&tag=latest" +
-                "&apikey="+apiKey;
+                "&apikey="+ System.getenv().get("ETHERSCAN_API_TOKEN");
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("User-Agent", options.getUserAgent());
@@ -116,7 +114,7 @@ public class Etherscan {
         String s = "https://"+url+"/api" +
                 "?module=proxy" +
                 "&action=eth_blockNumber" +
-                "&apikey="+apiKey;
+                "&apikey="+ System.getenv().get("ETHERSCAN_API_TOKEN");
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("User-Agent", options.getUserAgent());
