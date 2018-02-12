@@ -69,6 +69,8 @@ public class Minting {
     @Transactional
     public List<Payin> payin() throws ParseException, IOException {
         for(Investor investor:investorRepository.findAll()) {
+            /*
+            // TODO: Rewrite without Blockr
             //BTC
             String payInBTC = addressService.getBitcoinAddressFromPublicKey(investor.getPayInBitcoinPublicKey());
             List<Triple<Date,Long,Long>> list =  blockr.getTxBtc(payInBTC);
@@ -81,9 +83,10 @@ public class Minting {
                 p.setWalletAddress(investor.getWalletAddress());
                 payinRepository.save(p);
             }
+            */
             //ETH
             String payInETH = addressService.getEthereumAddressFromPublicKey(investor.getPayInEtherPublicKey());
-            list =  etherscan.getTxEth(payInETH);
+            List<Triple<Date,Long,Long>> list =  etherscan.getTxEth(payInETH);
             for(Triple<Date,Long,Long> t:list) {
                 Payin p = new Payin();
                 p.setBlockNrEth(t.getRight());
