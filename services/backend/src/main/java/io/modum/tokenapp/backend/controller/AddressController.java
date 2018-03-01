@@ -3,6 +3,7 @@ package io.modum.tokenapp.backend.controller;
 import io.modum.tokenapp.backend.controller.exceptions.*;
 import io.modum.tokenapp.backend.dao.InvestorRepository;
 import io.modum.tokenapp.backend.dao.KeyPairsRepository;
+import io.modum.tokenapp.backend.dao.ExchangeRateRepository;
 import io.modum.tokenapp.backend.dto.AddressRequest;
 import io.modum.tokenapp.backend.dto.AddressResponse;
 import io.modum.tokenapp.backend.dto.StatusResponse;
@@ -46,6 +47,9 @@ public class AddressController {
     private KeyPairsRepository keyPairsRepository;
 
     @Autowired
+    private ExchangeRateRepository exchangeRateRepository;
+
+    @Autowired
     private AddressService addressService;
 
     @Autowired
@@ -55,14 +59,16 @@ public class AddressController {
 
     }
 
-    @RequestMapping(value = "api/status", method = GET)
+    @RequestMapping(value = "status", method = GET)
     public ResponseEntity<StatusResponse> status(@Context HttpServletRequest httpServletRequest) throws BaseException {
-        return new ResponseEntity<>(new StatusResponse().setEthPrice("1000").setBtcPrice("10000")
+        long ethPrice = exchangeRateRepository.getEthPrice();
+        long btcPrice = exchangeRateRepository.getBtcPrice();
+        return new ResponseEntity<>(new StatusResponse().setEthPrice(ethPrice).setBtcPrice(btcPrice)
             , HttpStatus.OK);
 
     }
 
-    @RequestMapping(value = "api/address", method = POST, consumes = APPLICATION_JSON_UTF8_VALUE,
+    @RequestMapping(value = "address", method = POST, consumes = APPLICATION_JSON_UTF8_VALUE,
             produces = APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<AddressResponse> address(@Valid @RequestBody AddressRequest addressRequest,
                                                    @Valid @Size(max = Constants.UUID_CHAR_MAX_SIZE) @RequestHeader(value="Authorization") String authorizationHeader,

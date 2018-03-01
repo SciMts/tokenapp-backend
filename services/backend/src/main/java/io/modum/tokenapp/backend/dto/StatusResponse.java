@@ -5,24 +5,24 @@ import javax.validation.constraints.NotNull;
 public class StatusResponse {
 
     @NotNull
-    private String ethPrice;
+    private long ethPrice;
 
-    private String btcPrice;
+    private long btcPrice;
 
-    public String getEthPrice() {
+    public long getEthPrice() {
         return ethPrice;
     }
 
-    public StatusResponse setEthPrice(String ethPrice) {
+    public StatusResponse setEthPrice(long ethPrice) {
         this.ethPrice = ethPrice;
         return this;
     }
 
-    public String getBtcPrice() {
+    public long getBtcPrice() {
         return btcPrice;
     }
 
-    public StatusResponse setBtcPrice(String btcPrice) {
+    public StatusResponse setBtcPrice(long btcPrice) {
         this.btcPrice = btcPrice;
         return this;
     }
