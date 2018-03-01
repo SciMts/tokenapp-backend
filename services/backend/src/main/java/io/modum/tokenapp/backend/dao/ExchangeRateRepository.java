@@ -4,11 +4,11 @@ import io.modum.tokenapp.backend.model.ExchangeRate;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ExchangeRateRepository extends CrudRepository<ExchangeRate, Long> {
+public interface ExchangeRateRepository extends CrudRepository<ExchangeRate, Float> {
 
     @Query(value = "select rate_eth from exchange_rate order by id desc limit 1", nativeQuery = true)
-    long getEthPrice();
+    float getEthPrice();
 
     @Query(value = "select rate_Btc from exchange_rate order by id desc limit 1", nativeQuery = true)
-    long getBtcPrice();
+    float getBtcPrice();
 }

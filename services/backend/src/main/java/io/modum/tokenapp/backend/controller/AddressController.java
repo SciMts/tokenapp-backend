@@ -61,8 +61,8 @@ public class AddressController {
 
     @RequestMapping(value = "status", method = GET)
     public ResponseEntity<StatusResponse> status(@Context HttpServletRequest httpServletRequest) throws BaseException {
-        long ethPrice = exchangeRateRepository.getEthPrice();
-        long btcPrice = exchangeRateRepository.getBtcPrice();
+        float ethPrice = exchangeRateRepository.getEthPrice();
+        float btcPrice = exchangeRateRepository.getBtcPrice();
         return new ResponseEntity<>(new StatusResponse().setEthPrice(ethPrice).setBtcPrice(btcPrice)
             , HttpStatus.OK);
 
