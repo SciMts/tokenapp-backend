@@ -5,6 +5,7 @@ import io.modum.tokenapp.backend.dao.InvestorRepository;
 import io.modum.tokenapp.backend.dao.KeyPairsRepository;
 import io.modum.tokenapp.backend.dto.AddressRequest;
 import io.modum.tokenapp.backend.dto.AddressResponse;
+import io.modum.tokenapp.backend.dto.StatusResponse;
 import io.modum.tokenapp.backend.model.Investor;
 import io.modum.tokenapp.backend.model.KeyPairs;
 import io.modum.tokenapp.backend.service.AddressService;
@@ -29,6 +30,7 @@ import javax.ws.rs.core.Context;
 import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
@@ -50,6 +52,13 @@ public class AddressController {
     private FileQueueService fileQueueService;
 
     public AddressController() {
+
+    }
+
+    @RequestMapping(value = "api/status", method = GET)
+    public ResponseEntity<StatusResponse> status(@Context HttpServletRequest httpServletRequest) throws BaseException {
+        return new ResponseEntity<>(new StatusResponse().setEthPrice("1000").setBtcPrice("10000")
+            , HttpStatus.OK);
 
     }
 
